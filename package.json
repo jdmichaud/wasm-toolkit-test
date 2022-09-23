@@ -1,0 +1,23 @@
+{
+  "name": "@jdmichaud/wasm-toolkit-test",
+  "version": "1.0.0",
+  "description": "A test project for @jdmichaud/wasm-toolkit",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx clang --target=wasm32 --no-standard-libraries -Wl,--export-all -Wl,--no-entry,--allow-undefined -o add.wasm add.c",
+    "test": "rm -f add.wasm && npm run build && test -f add.wasm && echo All OK!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdmichaud/wasm-test.git"
+  },
+  "keywords": [
+    "wasm",
+    "test"
+  ],
+  "author": "jdmichaud",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@jdmichaud/wasm-toolkit": "^15.0.2"
+  }
+}

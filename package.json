@@ -4,8 +4,9 @@
   "description": "A test project for @jdmichaud/wasm-toolkit",
   "main": "index.js",
   "scripts": {
-    "build": "npx clang --target=wasm32 --no-standard-libraries -Wl,--export-all -Wl,--no-entry,--allow-undefined -o add.wasm add.c",
-    "test": "rm -f add.wasm && npm run build && test -f add.wasm && echo All OK!"
+    "build-c": "npx clang --target=wasm32 --no-standard-libraries -Wl,--export-all -Wl,--no-entry,--allow-undefined -o add.wasm add.c",
+    "build-cc": "npx clang --target=wasm32 --no-standard-libraries -Wl,--export-all -Wl,--no-entry,--allow-undefined -o vec.wasm vec.cc",
+    "test": "rm -f add.wasm && npm run build-c && test -f add.wasm && npm run build-cc && test -f vec.wasm && echo All OK!"
   },
   "repository": {
     "type": "git",
